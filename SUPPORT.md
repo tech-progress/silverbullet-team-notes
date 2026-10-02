@@ -2,7 +2,7 @@
 
 A small trusted team running independently authorized Markdown spaces, notes, attachments and the built-in dashboard. No Chromium, browser Runtime API, database, broker, SMTP or external identity provider. Writers are trusted collaborators, not hostile tenants.
 
-Browser offline edit/reconnect, interactive dashboard workflow, Git sync, SSO and runtime capability API behavior have not been qualified. No HA or multi-replica mode. Do not mount paths outside `/data` as spaces. A lost volume loses accounts and all content. Disable or carefully review any CONTAINER_BOOT.md file: upstream executes it on boot.
+Browser cached editing during server outage and reconnect synchronization are qualified for a previously opened/synchronized space. Do not clear browser local storage while unsynchronized edits exist. Interactive dashboard workflows, Git sync, SSO and browser Runtime API remain unqualified. No HA or multi-replica mode. Do not mount paths outside `/data` as spaces. A lost volume loses accounts and all content. Disable or carefully review any CONTAINER_BOOT.md file: upstream executes it on boot.
 
 The wrapper runs the supported `silverbullet setup` CLI before opening a socket. It seeds an administrator and private `/team` space, and refuses partial accounts/spaces configuration rather than exposing the unauthenticated setup wizard. Create ordinary users and additional spaces in `/.dashboard`; choose anonymous access **none**, grant each account only its own space, and keep shell capabilities disabled. Administrators intentionally see every space. The slim build cannot run server-side browser Runtime API features. API tokens are per-account, not legacy `SB_AUTH_TOKEN` or a shared `SB_USER`.
 

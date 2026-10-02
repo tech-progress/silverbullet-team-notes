@@ -1,6 +1,6 @@
 # SilverBullet — SilverBullet team notes
 
-Template contract **1.0.0** (unpublished). Pinned upstream **2.11.1 slim**; image digests are in Dockerfile/Compose, independent of VERSION. Railway authoring dependency is exactly `railway@3.6.0`, with `bun.lock`.
+Template contract **1.0.1** (unpublished). Pinned upstream **2.11.1 slim**; image digests are in Dockerfile/Compose, independent of VERSION. Railway authoring dependency is exactly `railway@3.6.0`, with `bun.lock`.
 
 ## What this deploys
 
@@ -62,7 +62,7 @@ Stop the app, then archive **all** of `/data`, including users.json, spaces.json
 
 `bash scripts/verify.sh` checks structure, version, JSON, dependency lock, Compose and offline IaC/draft contracts. `bash scripts/smoke.sh` is the destructive **isolated test** gate, not a production restoration command. See SUPPORT.md and UPGRADE.md.
 
-Browser offline edit/reconnect, interactive dashboard workflow, Git sync, SSO and runtime capability API behavior have not been qualified. No HA or multi-replica mode. Do not mount paths outside `/data` as spaces. A lost volume loses accounts and all content. Disable or carefully review any CONTAINER_BOOT.md file: upstream executes it on boot.
+Browser cached editing during a server outage and reconnect synchronization have been qualified. Open and synchronize a space while online first; offline availability depends on that browser's retained service-worker/local database state, not a server backup. Interactive dashboard workflows, Git sync, SSO and browser Runtime API remain outside this scope. No HA or multi-replica mode. Do not mount paths outside `/data` as spaces. A lost volume loses accounts and all content. Disable or carefully review any CONTAINER_BOOT.md file: upstream executes it on boot.
 
 Local qualification does **not** complete marketplace publication. A maintainer must perform the root metadata synchronization/audit, a sanitized-source audit, source authorization, and an explicitly approved Railway validation/cleanup. Those gates are unrun in this implementation-only task.
 
@@ -71,7 +71,7 @@ Local qualification does **not** complete marketplace publication. A maintainer 
 - [SilverBullet](https://silverbullet.md/)
 - [SilverBullet source](https://github.com/silverbulletmd/silverbullet)
 
-Configuration/license reviewed at the pinned source: [2.11.1 slim](https://github.com/silverbulletmd/silverbullet/tree/2.11.1), [MIT license](https://github.com/silverbulletmd/silverbullet/blob/2.11.1/LICENSE.md). LICENSE.upstream retains the tagged upstream license; LICENSE_REVIEW.md describes distribution obligations.
+Configuration/license reviewed at the pinned source: [2.11.1 slim](https://github.com/silverbulletmd/silverbullet/tree/2.11.1), [MIT license](https://github.com/silverbulletmd/silverbullet/blob/2.11.1/LICENSE.md). LICENSE.upstream retains the tagged upstream license. The runtime retains the iA Writer/IBM Plex SIL Open Font License at `/usr/share/doc/silverbullet/FONT-LICENSE.md`; fonts and dependency licenses remain separate from the original wrapper's MIT license. Upstream images are built from their pinned artifacts; this repository does not distribute a stripped binary image.
 
 ## Recipe license and distribution
 
