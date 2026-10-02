@@ -1,0 +1,6 @@
+{
+  "SilverBullet": {
+    "mountPath": "/data",
+    "sizeMB": 5000
+  }
+}

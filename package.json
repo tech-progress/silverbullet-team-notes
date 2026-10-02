@@ -1,0 +1,12 @@
+{
+  "name": "railway-silverbullet-team-notes",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "verify": "bash scripts/verify.sh",
+    "smoke": "bash scripts/smoke.sh"
+  },
+  "devDependencies": {
+    "railway": "3.6.0"
+  }
+}

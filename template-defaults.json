@@ -1,0 +1,12 @@
+{
+  "SilverBullet": {
+    "PORT": "3000",
+    "SB_PORT": "3000",
+    "SB_HOSTNAME": "::",
+    "SB_FOLDER": "/data",
+    "SB_ADMIN_USER": "admin",
+    "SB_ADMIN_PASSWORD": "${{secret(32, \"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789\")}}",
+    "PUID": "1000",
+    "PGID": "1000"
+  }
+}

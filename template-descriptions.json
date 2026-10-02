@@ -1,0 +1,12 @@
+{
+  "SilverBullet": {
+    "PORT": "PORT: pinned deployment setting; see README for scope and recovery requirements.",
+    "SB_PORT": "SB_PORT: pinned deployment setting; see README for scope and recovery requirements.",
+    "SB_HOSTNAME": "SB_HOSTNAME: pinned deployment setting; see README for scope and recovery requirements.",
+    "SB_FOLDER": "SB_FOLDER: pinned deployment setting; see README for scope and recovery requirements.",
+    "SB_ADMIN_USER": "SB_ADMIN_USER: pinned deployment setting; see README for scope and recovery requirements.",
+    "SB_ADMIN_PASSWORD": "Generated initial administrator password; changing it does not reset existing accounts. Keep the full /data root.",
+    "PUID": "PUID: pinned deployment setting; see README for scope and recovery requirements.",
+    "PGID": "PGID: pinned deployment setting; see README for scope and recovery requirements."
+  }
+}

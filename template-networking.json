@@ -1,0 +1,6 @@
+{
+  "SilverBullet": {
+    "publicPort": 3000,
+    "tcpProxy": false
+  }
+}

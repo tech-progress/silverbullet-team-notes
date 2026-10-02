@@ -1,0 +1,17 @@
+{
+  "name": "SilverBullet team notes",
+  "category": "Other",
+  "description": "Authenticated multi-space Markdown notes without a browser runtime",
+  "icon": "https://raw.githubusercontent.com/silverbulletmd/silverbullet/2.11.1/client/images/logo.png",
+  "origins": [
+    {
+      "name": "SilverBullet",
+      "url": "https://silverbullet.md/"
+    },
+    {
+      "name": "SilverBullet source",
+      "url": "https://github.com/silverbulletmd/silverbullet"
+    }
+  ],
+  "directory": "silverbullet-team-notes"
+}
