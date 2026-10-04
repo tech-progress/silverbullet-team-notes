@@ -1,6 +1,6 @@
 # SilverBullet — SilverBullet team notes
 
-Template contract **1.0.1** (unpublished). Pinned upstream **2.11.1 slim**; image digests are in Dockerfile/Compose, independent of VERSION. Railway authoring dependency is exactly `railway@3.6.0`, with `bun.lock`.
+Template contract **1.0.2** Source releases and marketplace publication are distinct; require the exact-revision gates in PUBLISHING.md before promotion. Pinned upstream **2.11.1 slim**; image digests are in Dockerfile/Compose, independent of VERSION. Railway authoring dependency is exactly `railway@3.6.0`, with `bun.lock`. Runtime, authentication, storage and deployment defaults are unchanged from v1.0.1.
 
 ## What this deploys
 
@@ -29,7 +29,7 @@ docker compose down                 # retains your data
 
 ## Railway source and networking
 
-`.railway/railway.ts` requires an **actually accessible** `TEMPLATE_SOURCE_REPO` (`owner/repository`) and an **existing** slash-free `TEMPLATE_SOURCE_BRANCH`. There is no assumed standalone distribution repository or fabricated deployment button. Set `TEMPLATE_SOURCE_ROOT_DIR` to `/silverbullet-team-notes` for a monorepo or `/` for a sanitized standalone copy. This becomes Railway's `source.rootDirectory`. Source accessibility/GitHub App authorization and a verified `release-v1` channel are publication gates, not assumed facts.
+`.railway/railway.ts` requires an **actually accessible** `TEMPLATE_SOURCE_REPO` (`owner/repository`) and an **existing** slash-free `TEMPLATE_SOURCE_BRANCH`. The historical sanitized standalone source is [tech-progress/silverbullet-team-notes](https://github.com/tech-progress/silverbullet-team-notes); immutable `v1.0.1` resolves to `dc2fd4b53169da7e9fa4eb57e37d376ae8288d7d`. Its `main`/`release-v1` channels and selected Railway source access were verified for that commit, not for another source revision. Set `TEMPLATE_SOURCE_ROOT_DIR` to `/silverbullet-team-notes` for a monorepo or `/` for a sanitized standalone copy. This becomes Railway's `source.rootDirectory`. Recheck source authorization and the exact release-channel commit before v1.0.2 qualification; no deployment button is offered here.
 
 Install with `bun install --frozen-lockfile`; evaluate locally with `./node_modules/.bin/railway-iac-ts .railway/railway.ts` after supplying the three source settings. Only the app gets an HTTPS domain, targeting **3000**. Native login remains required. Private dependencies have no public domains or TCP proxies. Runtime listeners support Railway IPv6 private networking and local IPv4. Apply/audit the exported template's networking with the offline draft scripts before any authorized publication; see PUBLISHING.md. No paid or remote deployment is performed by verification scripts.
 
@@ -60,11 +60,13 @@ Stop the app, then archive **all** of `/data`, including users.json, spaces.json
 
 ## Verification and limits
 
-`bash scripts/verify.sh` checks structure, version, JSON, dependency lock, Compose and offline IaC/draft contracts. `bash scripts/smoke.sh` is the destructive **isolated test** gate, not a production restoration command. See SUPPORT.md and UPGRADE.md.
+`bash scripts/verify.sh` checks structure, documentation/version consistency, JSON, dependency lock, Compose and offline IaC/draft contracts. For bounded local checks with already installed dependencies, `STATIC_ONLY=1 bash scripts/verify.sh` skips dependency installation and Docker/Compose entirely; it does not qualify build/start or runtime. A sanitized standalone copy uses `PUBLIC_DISTRIBUTION=1` and source root `/`; private maintainer records are not required there. `bash scripts/smoke.sh` is the destructive **isolated test** gate, not a production restoration command. See SUPPORT.md and UPGRADE.md.
 
-Browser cached editing during a server outage and reconnect synchronization have been qualified. Open and synchronize a space while online first; offline availability depends on that browser's retained service-worker/local database state, not a server backup. Interactive dashboard workflows, Git sync, SSO and browser Runtime API remain outside this scope. No HA or multi-replica mode. Do not mount paths outside `/data` as spaces. A lost volume loses accounts and all content. Disable or carefully review any CONTAINER_BOOT.md file: upstream executes it on boot.
+Historical v1.0.1 qualification covered the exact stored draft graph deployed through `templateDeployV2`, native owner login, ordinary-account tokens, two private spaces, anonymous/cross-space denial, note/attachment bytes, browser cached editing during a real server outage and exact-byte reconnect synchronization. A quiesced full-root archive restored accounts, memberships, tokens and content into a fresh Railway volume. A two-client soak performed 120 authenticated note reads in 68.4 seconds; this is bounded headroom evidence, not production capacity or HA. These results belong to the immutable v1.0.1 commit above and do not qualify v1.0.2.
 
-Local qualification does **not** complete marketplace publication. A maintainer must perform the root metadata synchronization/audit, a sanitized-source audit, source authorization, and an explicitly approved Railway validation/cleanup. Those gates are unrun in this implementation-only task.
+Open and synchronize a space while online first; offline availability depends on that browser's retained service-worker/local database state, not a server backup. Broader interactive dashboard workflows, Git sync and SSO remain unqualified; browser Runtime API is unsupported in the slim image (503 denial was verified on v1.0.1). No HA or multi-replica mode. Do not mount paths outside `/data` as spaces. A lost volume loses accounts and all content. Disable or carefully review any CONTAINER_BOOT.md file: upstream executes it on boot.
+
+The historical draft remains **UNPUBLISHED**; provisional draft identifiers are not deployment links. Historical cleanup verified zero active deployments and zero running/created/restarting replicas before deleting validation resources/project. Railway retained-volume deletion windows remain disclosed: resource deletion does not prove physical erasure or billing zero. The owner accepts standard deletion plus verified zero compute and disclosed retention for sequential publication; no new authorization decision is needed for that standard. v1.0.2 still requires sanitized-source release/privacy checks, exact stored-graph Railway requalification and cleanup, and shared marketplace synchronization/audit. A source commit or offline verification alone does not establish publication.
 
 ## Main upstream products
 
@@ -75,4 +77,4 @@ Configuration/license reviewed at the pinned source: [2.11.1 slim](https://githu
 
 ## Recipe license and distribution
 
-Newly authored recipe/wrapper/application code is MIT licensed; see `LICENSE`. This does not relicense upstream applications, dependencies or marks. Preserve upstream notices and corresponding-source obligations. Public distributions exclude internal findings, license-review journals and publication operations. Railway source selection must still be independently qualified.
+Newly authored recipe/wrapper/application code is MIT licensed; see `LICENSE`. This does not relicense upstream applications, dependencies or marks. Preserve upstream notices and corresponding-source obligations. Public distributions exclude internal findings, license-review journals and publication operations. Historical v1.0.1 source selection was qualified; v1.0.2 source selection must be independently requalified. No blanket transitive artifact/SBOM/legal certification is claimed.

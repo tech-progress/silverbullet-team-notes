@@ -16,7 +16,7 @@ The wrapper runs the supported `silverbullet setup` CLI before opening a socket.
 
 Set a real admin identity before first boot, store generated passwords securely, keep only the app public, and retain encrypted off-volume backups. Follow README.md for variables, source settings, URLs and restore procedures. This is a single-node template, not an HA architecture. Railway plans/volume limits and application workload determine suitability.
 
-**Unpublished:** no template ID/code or deployment URL is assigned. Source authorization, root metadata sync/audit and approved Railway qualification must pass before offering a deploy button.
+**1.0.2:** Source releases and marketplace publication are distinct. Historical v1.0.1 source in [tech-progress/silverbullet-team-notes](https://github.com/tech-progress/silverbullet-team-notes) and its exact stored draft graph passed bounded Railway qualification; the draft was then **UNPUBLISHED**. Provisional draft identifiers are not published deployment links. v1.0.2 source release/privacy checks, exact stored-graph requalification/cleanup and shared metadata sync/audit must pass before offering a deploy button. Historical resource deletion verified zero compute but does not prove physical storage erasure or billing zero; Railway retention windows remain applicable.
 
 ## Main upstream products
 
